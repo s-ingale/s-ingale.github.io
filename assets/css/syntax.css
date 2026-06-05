@@ -1,0 +1,17 @@
+/* Rouge syntax highlighting — light theme (matches the article view) */
+.highlight, .highlight pre{ background: transparent; }
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs{ color:#9a9a9a; font-style:italic; } /* comments */
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kc{ color:#a626a4; } /* keyword */
+.highlight .o, .highlight .ow{ color:#383a42; }                                /* operator */
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb,
+.highlight .sd, .highlight .se, .highlight .si{ color:#50a14f; }                /* strings */
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh{ color:#b76b01; }/* numbers */
+.highlight .nf, .highlight .fm{ color:#4078f2; }                               /* func name */
+.highlight .nc, .highlight .nn{ color:#c18401; }                               /* class / ns */
+.highlight .nb, .highlight .bp{ color:#0184bc; }                               /* builtin */
+.highlight .nd{ color:#a626a4; }                                               /* decorator */
+.highlight .na{ color:#b76b01; }                                               /* attribute */
+.highlight .nt{ color:#e45649; }                                               /* html tag */
+.highlight .err{ color:#e45649; }
+.highlight .gi{ color:#50a14f; }                                               /* diff insert */
+.highlight .gd{ color:#e45649; }                                               /* diff delete */

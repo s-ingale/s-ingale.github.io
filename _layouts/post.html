@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% assign sec = site.sections | where: "key", page.section | first %}
+{% assign full_url = page.url | absolute_url %}
+
+<div class="topbar">
+  <a class="topbar__back" href="{{ '/' | relative_url }}">&larr; Back</a>
+</div>
+
+<main class="article">
+  <aside class="share" aria-label="Share">
+    <a class="share__link" title="Share on X"
+       href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ full_url | uri_escape }}"
+       target="_blank" rel="noopener">X</a>
+    <a class="share__link" title="Share on LinkedIn"
+       href="https://www.linkedin.com/sharing/share-offsite/?url={{ full_url | uri_escape }}"
+       target="_blank" rel="noopener">in</a>
+    <button class="share__link" title="Copy link" data-copy="{{ full_url }}">link</button>
+  </aside>
+
+  <article class="post">
+    <div class="post__meta">
+      <span class="post__tag" style="color: {{ sec.color }}">{{ sec.label | upcase }}</span>
+      <time>{{ page.date | date: "%B %-d, %Y" }}</time>
+    </div>
+    <h1 class="post__title">{{ page.title }}</h1>
+    {% if page.description %}<p class="post__lede">{{ page.description }}</p>{% endif %}
+
+    <div class="post__body">
+      {{ content }}
+    </div>
+  </article>
+
+  {% include nav.html %}
+</main>

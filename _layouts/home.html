@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<main class="home">
+  <header class="masthead">
+    <div class="masthead__photo">
+      <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="{{ site.author.name }}">
+    </div>
+    <div class="masthead__intro">
+      <h1 class="site-name glitch" data-text="{{ site.title }}">{{ site.title }}</h1>
+      <p class="site-tagline">{{ site.tagline }}</p>
+    </div>
+    {% include nav.html %}
+  </header>
+
+  {% assign posts = site.tech | concat: site.philosophy | sort: "date" | reverse %}
+  <section class="grid" id="grid">
+    {% for post in posts %}
+      {% include card.html post=post %}
+    {% endfor %}
+  </section>
+
+  {% if posts.size == 0 %}
+    <p class="empty">No posts yet — add a <code>.md</code> file to <code>_tech/</code> or <code>_philosophy/</code>.</p>
+  {% endif %}
+</main>

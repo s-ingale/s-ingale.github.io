@@ -1,0 +1,60 @@
+# ─────────────────────────────────────────────────────────────
+#  Site configuration.  Edit the values here to change the
+#  header text, your social links, and the two sections.
+# ─────────────────────────────────────────────────────────────
+
+title:    Shubham Ingale
+tagline:  Engineer & Thinker
+description: >-
+  Tech writing on data science & AI, and notes on philosophy & thinking.
+url:      "https://s-ingale.github.io"
+baseurl:  ""
+
+# Shown in the article share bar / footer
+author:
+  name:     Shubham Ingale
+  email:    shubhamingale2303@gmail.com
+  github:   s-ingale
+  linkedin: ""          # e.g. "shubham-ingale"  (just the handle)
+  twitter:  ""          # e.g. "s_ingale"        (without the @)
+
+# The two sections of the site.  Each `key` maps to a folder
+# named "_<key>"  (so posts for "tech" live in  _tech/  ).
+sections:
+  - key:   tech
+    label: Tech
+    full:  Data Science & AI
+    color: "#e8833a"     # warm amber
+  - key:   philosophy
+    label: Philosophy
+    full:  Philosophy & Thinking
+    color: "#5cc8c0"     # teal
+
+# ── Jekyll collections (one per section) ───────────────────────
+collections:
+  tech:
+    output: true
+    permalink: /tech/:name/
+  philosophy:
+    output: true
+    permalink: /philosophy/:name/
+
+# Default layout for everything in those folders
+defaults:
+  - scope: { path: "", type: "tech" }
+    values: { layout: "post", section: "tech", body_class: "theme-light" }
+  - scope: { path: "", type: "philosophy" }
+    values: { layout: "post", section: "philosophy", body_class: "theme-light" }
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Don't copy these into the built site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

@@ -1,0 +1,8 @@
+{% assign post = include.post %}
+{% assign sec = site.sections | where: "key", post.collection | first %}
+<a class="card" href="{{ post.url | relative_url }}" data-section="{{ post.collection }}">
+  <span class="card__tag" style="color: {{ sec.color }}">{{ sec.label | upcase }}</span>
+  <time class="card__date">{{ post.date | date: "%b. %-d" }}</time>
+  <h2 class="card__title">{{ post.title }}</h2>
+  {% if post.description %}<p class="card__desc">{{ post.description }}</p>{% endif %}
+</a>
