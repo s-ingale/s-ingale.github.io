@@ -1,9 +1,15 @@
-{% comment %} Right-hand section navigation. On the home page these
-   filter the grid; on other pages they link back home with a hash. {% endcomment %}
+{% comment %} Right-hand section navigation, identical on every page.
+   Active state is decided here (server-side) from the current page;
+   on the home page the JS additionally swaps it while filtering. {% endcomment %}
 <nav class="nav" aria-label="Sections">
-  <a href="{{ '/' | relative_url }}#all"        class="nav__link" data-filter="all">All posts</a>
+  <a href="{{ '/' | relative_url }}#all"
+     class="nav__link{% if page.url == '/' %} is-active{% endif %}"
+     data-filter="all">All posts</a>
   {% for s in site.sections %}
-  <a href="{{ '/' | relative_url }}#{{ s.key }}" class="nav__link" data-filter="{{ s.key }}">{{ s.full }}</a>
+  <a href="{{ '/' | relative_url }}#{{ s.key }}"
+     class="nav__link{% if page.section == s.key %} is-active{% endif %}"
+     data-filter="{{ s.key }}">{{ s.full }}</a>
   {% endfor %}
-  <a href="{{ '/about/' | relative_url }}"       class="nav__link">About</a>
+  <a href="{{ '/about/' | relative_url }}"
+     class="nav__link{% if page.url == '/about/' %} is-active{% endif %}">About</a>
 </nav>

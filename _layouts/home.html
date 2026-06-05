@@ -10,7 +10,6 @@ layout: default
       <h1 class="site-name glitch" data-text="{{ site.title }}">{{ site.title }}</h1>
       <p class="site-tagline">{{ site.tagline }}</p>
     </div>
-    {% include nav.html %}
   </header>
 
   {% assign posts = site.tech | concat: site.philosophy | sort: "date" | reverse %}
