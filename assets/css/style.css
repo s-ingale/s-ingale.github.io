@@ -29,7 +29,9 @@
 @view-transition{ navigation: auto; }
 
 *{ box-sizing: border-box; }
-html{ -webkit-text-size-adjust: 100%; }
+/* Always reserve scrollbar space so fixed elements (the nav) sit at the
+   same spot on short pages (About/home) and long pages (posts). */
+html{ -webkit-text-size-adjust: 100%; overflow-y: scroll; scrollbar-gutter: stable; }
 body{ margin:0; font-family: var(--sans); line-height:1.6; }
 img{ max-width:100%; display:block; }
 a{ color: inherit; text-decoration: none; }
