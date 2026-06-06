@@ -209,8 +209,8 @@ a{ color: inherit; text-decoration: none; }
 .post__body{ font-size: 1.06rem; line-height: 1.75; }
 .post__body > p:first-of-type::first-letter{
   font-family: var(--mono); font-weight:700;
-  float:left; font-size: 3.4rem; line-height: .8;
-  padding: 6px 10px 0 0;
+  float:left; font-size: 2.3rem; line-height: .85;
+  padding: 2px 8px 0 0;
 }
 .post__body h2{ font-family: var(--mono); font-size:1.5rem; margin:2.2em 0 .6em; }
 .post__body h3{ font-family: var(--mono); font-size:1.2rem; margin:1.8em 0 .5em; }
