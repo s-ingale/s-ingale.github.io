@@ -5,7 +5,7 @@ permalink: /about/
 body_class: theme-light
 ---
 
-I'm **Shubham Ingale** — engineer and thinker. This site holds two kinds of
+I'm **Shubham**. This is the place where I share my ideas and observations. This site holds two kinds of
 writing:
 
 - **Data Science & AI** — technical notes, experiments, and things I learn
@@ -13,5 +13,5 @@ writing:
 - **Philosophy & Thinking** — slower pieces on ideas, meaning, and how I see
   the world.
 
-Find me on [GitHub](https://github.com/s-ingale).
+Find me on [LinkedIn](https://www.linkedin.com/in/ingale-shubham/).
 Reach out at <shubhamingale2303@gmail.com>.
