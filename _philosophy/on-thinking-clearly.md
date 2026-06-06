@@ -6,6 +6,7 @@ date: 2026-06-04
 
 Things I have come to realize about thinking:
 
+
 1. Always think from first principles. It's harder than it sounds, but worth the effort.
 
 2. Keep the language simple. If something can be explained simply, there is no need to complicate it with fancy words just to make yourself feel better.
