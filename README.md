@@ -38,7 +38,7 @@ The filename becomes the URL slug, so `my-new-post.md` → `/tech/my-new-post/`.
 ## 🛠️ Change site-wide things
 
 Open `_config.yml` to edit your **name**, **tagline**, **social links**, and the
-two **section** labels/colors. Replace `assets/img/profile.jpg` with your photo.
+two **section** labels/colors. Replace `assets/img/profile.png` with your photo.
 
 ## 👀 Preview locally (optional)
 
