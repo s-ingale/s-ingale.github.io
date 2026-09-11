@@ -4,7 +4,8 @@
 # ─────────────────────────────────────────────────────────────
 
 title:    Shubham Ingale
-tagline:  Engineer & Thinker
+intro:    "Hi, I'm Shubham. This is my little corner on the internet where I share my thoughts."
+tagline:  Thoughts on technology and philosophy.
 description: >-
   Tech writing on data science & AI, and notes on philosophy & thinking.
 url:      "https://s-ingale.github.io"
