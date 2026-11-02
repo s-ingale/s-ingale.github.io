@@ -6,7 +6,7 @@ A Jekyll site hosted on GitHub Pages. Public prose is supplied by Shubham and pr
 
 Create `_journal/<slug>.md` with YAML front matter containing `title` and `date` (YYYY-MM-DD), followed by the author's exact Markdown. Optional `description` is also author-supplied. Entries use the author’s supplied text. The post layout automatically places “Written by human hands” before the article title. Entries appear on the homepage newest first.
 
-Name, introduction, and authorship wording live in `_config.yml`. The original blossom illustration is `_includes/tree.svg`. Styles and browser controls are in `assets/css/site.css` and `assets/js/main.js`.
+Name and authorship wording live in `_config.yml`. Styles and theme controls are in `assets/css/site.css` and `assets/js/main.js`. Homepage petals use `assets/js/petals.js`: gravity, quadratic drag, damped collisions, friction, and a viewport floor. The pile is held in memory and resets on page load. No external image or credit is used.
 
 Light is the default theme. The explicit theme preference is stored locally when available. Petals animate without an on-page pause control. Reduced-motion preferences disable all animation.
 

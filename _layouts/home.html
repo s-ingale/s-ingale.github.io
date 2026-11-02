@@ -2,17 +2,12 @@
 layout: default
 ---
 <main id="main" class="home">
-  <div class="garden" aria-hidden="true">
-    <div class="floating-tree">{% include tree.svg %}</div>
-    <div class="petals">{% for i in (1..16) %}<i class="petal petal-{{ i }}"><span></span></i>{% endfor %}</div>
-  </div>
-  <div class="journal-column">
-    <header class="journal-intro"><h1>{{ site.intro | escape }}</h1><div class="quiet-line" aria-hidden="true"></div></header>
-    {% assign entries = site.journal | sort: 'date' | reverse %}
-    {% if entries.size > 0 %}
-    <section class="journal" aria-label="Journal">
-      {% for post in entries %}{% include card.html post=post %}{% endfor %}
-    </section>
-    {% endif %}
-  </div>
+  <canvas class="petal-canvas" data-petal-physics aria-hidden="true"></canvas>
+  {% assign entries = site.journal | sort: 'date' | reverse %}
+  {% if entries.size > 0 %}
+  <section class="journal" aria-label="Journal">
+    {% for post in entries %}{% include card.html post=post %}{% endfor %}
+  </section>
+  {% endif %}
+  <script src="{{ '/assets/js/petals.js' | relative_url }}?v=petal-physics-1" defer></script>
 </main>

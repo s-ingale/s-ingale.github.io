@@ -2,5 +2,5 @@
   <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%d %B %Y" }}</time>
   <h2>{{ include.post.title | escape }}</h2>
   {% if include.post.description %}<p>{{ include.post.description | escape }}</p>{% endif %}
-  <span class="entry-arrow" aria-hidden="true">↗</span>
+  <svg class="entry-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>
 </a>
