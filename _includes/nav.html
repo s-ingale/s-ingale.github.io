@@ -1,15 +1,7 @@
-{% comment %} Right-hand section navigation, identical on every page.
-   Active state is decided here (server-side) from the current page;
-   on the home page the JS additionally swaps it while filtering. {% endcomment %}
-<nav class="nav" aria-label="Sections">
-  <a href="{{ '/' | relative_url }}#all"
-     class="nav__link{% if page.url == '/' %} is-active{% endif %}"
-     data-filter="all">All posts</a>
-  {% for s in site.sections %}
-  <a href="{{ '/' | relative_url }}#{{ s.key }}"
-     class="nav__link{% if page.section == s.key %} is-active{% endif %}"
-     data-filter="{{ s.key }}">{{ s.full }}</a>
-  {% endfor %}
-  <a href="{{ '/about/' | relative_url }}"
-     class="nav__link{% if page.url == '/about/' %} is-active{% endif %}">About</a>
-</nav>
+<header class="site-header">
+  <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+  <div class="controls">
+    {% if page.layout == 'home' %}<button class="icon-button motion-toggle" type="button" aria-label="Pause animation" aria-pressed="false" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pause-icon" d="M9 6v12M15 6v12"/><path class="play-icon" d="m9 6 9 6-9 6Z"/></svg></button>{% endif %}
+    <button class="icon-button theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4a8.5 8.5 0 1 0 10.2 10.2Z"/></svg><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
+  </div>
+</header>

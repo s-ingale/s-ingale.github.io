@@ -1,41 +1,29 @@
-// ── Section filtering on the home grid ──────────────────────────
-(function () {
-  // Filtering only happens on the home page; elsewhere the active nav
-  // item is set server-side and must be left untouched.
-  var grid = document.getElementById('grid');
-  if (!grid) return;
-
-  var links = document.querySelectorAll('.nav__link[data-filter]');
-
-  function apply(filter) {
-    grid.querySelectorAll('.card').forEach(function (card) {
-      var show = filter === 'all' || card.dataset.section === filter;
-      card.classList.toggle('is-hidden', !show);
-    });
-    links.forEach(function (l) {
-      l.classList.toggle('is-active', l.dataset.filter === filter);
+(() => {
+  const root = document.documentElement;
+  const theme = document.querySelector('.theme-toggle');
+  const motion = document.querySelector('.motion-toggle');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const save = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
+  function syncTheme() { theme.setAttribute('aria-pressed', String(root.dataset.theme === 'dark')); }
+  theme.hidden = false;
+  syncTheme();
+  theme.addEventListener('click', () => {
+    const dark = root.dataset.theme !== 'dark';
+    root.dataset.theme = dark ? 'dark' : 'light';
+    save('journal-theme', root.dataset.theme);
+    syncTheme();
+  });
+  if (motion) {
+    const syncMotion = () => {
+      motion.hidden = reduced.matches;
+      motion.setAttribute('aria-pressed', String(root.dataset.motion === 'paused'));
+    };
+    syncMotion();
+    reduced.addEventListener('change', syncMotion);
+    motion.addEventListener('click', () => {
+      root.dataset.motion = root.dataset.motion === 'paused' ? 'running' : 'paused';
+      save('journal-motion', root.dataset.motion);
+      syncMotion();
     });
   }
-
-  links.forEach(function (l) {
-    l.addEventListener('click', function (e) {
-      e.preventDefault();
-      history.replaceState(null, '', '#' + l.dataset.filter);
-      apply(l.dataset.filter);
-    });
-  });
-
-  var valid = [].map.call(links, function (l) { return l.dataset.filter; });
-  var initial = (location.hash || '#all').slice(1);
-  apply(valid.indexOf(initial) > -1 ? initial : 'all');
 })();
-
-// ── Copy-link buttons on articles ───────────────────────────────
-document.querySelectorAll('[data-copy]').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    navigator.clipboard.writeText(btn.dataset.copy).then(function () {
-      btn.textContent = 'Copied!';
-      setTimeout(function () { btn.textContent = 'Copy Link'; }, 1400);
-    });
-  });
-});

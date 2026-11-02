@@ -1,17 +1,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.tagline }}{% endif %}</title>
-<meta name="description" content="{% if page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-
-<!-- social cards -->
-<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=restored-42b2fb">
-<link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}?v=restored-42b2fb">
+<title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+<meta name="description" content="{{ page.description | default: site.description | strip_html | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | strip_html | escape }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta name="color-scheme" content="light dark">
+<script>
+(function () {
+  try {
+    if (localStorage.getItem('journal-theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+    if (localStorage.getItem('journal-motion') === 'paused') document.documentElement.dataset.motion = 'paused';
+  } catch (e) {}
+})();
+</script>
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/img/petal.svg' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=blossom-1">

@@ -1,24 +1,21 @@
 ---
 layout: default
 ---
-<main class="home">
-  <header class="masthead">
-    <div class="masthead__photo">
-      <img src="{{ '/assets/img/profile.png' | relative_url }}" alt="{{ site.author.name }}">
+<main id="main" class="home">
+  <section class="hero" aria-labelledby="journal-title">
+    <div class="sky-scene" aria-hidden="true">
+      <div class="sky-halo"></div>
+      <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+      <div class="floating-tree">{% include tree.svg %}</div>
+      <div class="petals">{% for i in (1..9) %}<i class="petal petal-{{ i }}"></i>{% endfor %}</div>
+      <div class="island-shadow"></div>
     </div>
-    <div class="masthead__intro">
-      <p class="site-intro">{{ site.intro }}</p>
-    </div>
-  </header>
-
-  {% assign posts = site.tech | concat: site.philosophy | sort: "date" | reverse %}
-  <section class="grid" id="grid">
-    {% for post in posts %}
-      {% include card.html post=post %}
-    {% endfor %}
+    <div class="hero-words"><span class="small-flower" aria-hidden="true">✿</span><h1 id="journal-title">{{ site.intro | escape }}</h1><div class="quiet-line" aria-hidden="true"></div></div>
   </section>
-
-  {% if posts.size == 0 %}
-    <p class="empty">No posts yet — add a <code>.md</code> file to <code>_tech/</code> or <code>_philosophy/</code>.</p>
+  {% assign entries = site.journal | sort: 'date' | reverse %}
+  {% if entries.size > 0 %}
+  <section class="journal" aria-label="Journal">
+    {% for post in entries %}{% include card.html post=post %}{% endfor %}
+  </section>
   {% endif %}
 </main>

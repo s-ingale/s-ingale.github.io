@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
-<head>
-  {% include head.html %}
-</head>
-<body class="{{ page.body_class }}">
+<head>{% include head.html %}</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
   {% include nav.html %}
   {{ content }}
-  <script src="{{ '/assets/js/main.js' | relative_url }}?v=restored-42b2fb"></script>
+  <footer class="site-footer"><span>{{ site.title | escape }}</span><span class="footer-petal" aria-hidden="true">✿</span><span>{{ site.intro | escape }}</span></footer>
+  <script src="{{ '/assets/js/main.js' | relative_url }}?v=blossom-1" defer></script>
 </body>
 </html>

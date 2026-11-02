@@ -1,50 +1,13 @@
-# s-ingale.github.io
+# Shubham Ingale’s journal
 
-My personal site → **https://s-ingale.github.io**
+A Jekyll site hosted on GitHub Pages. Public prose is supplied by Shubham and preserved verbatim. Do not generate, rewrite, or correct journal content without his request.
 
-Two sections:
+## Add an entry
 
-| Section | Folder | URL |
-|---|---|---|
-| Data Science & AI | `_tech/` | `/tech/<name>/` |
-| Philosophy & Thinking | `_philosophy/` | `/philosophy/<name>/` |
+Create `_journal/<slug>.md` with YAML front matter containing `title` and `date` (YYYY-MM-DD), followed by the author's exact Markdown. Optional `description` is also author-supplied. No sample entries are published. The post layout automatically places “Written by human hands” before the article title. Entries appear on the homepage newest first.
 
-## ✍️ Add a new post
+Name, introduction, and authorship wording live in `_config.yml`. The original blossom illustration is `_includes/tree.svg`. Styles and browser controls are in `assets/css/site.css` and `assets/js/main.js`.
 
-1. Create a markdown file in the right folder, e.g. `_tech/my-new-post.md`.
-2. Start it with this front-matter block (the YAML at the top):
+Light is the default theme. Explicit theme and animation preferences are stored locally when available. Reduced-motion preferences disable all animation.
 
-   ```yaml
-   ---
-   title: "My New Post"
-   description: "One line shown on the home-page card."
-   date: 2026-06-05
-   ---
-   ```
-3. Write your post in markdown below it.
-4. Commit and push:
-
-   ```bash
-   git add .
-   git commit -m "Add: my new post"
-   git push
-   ```
-
-GitHub Pages rebuilds and deploys automatically — no build step, no Action to
-run. The new card appears on the home page (newest first) within a minute or two.
-
-The filename becomes the URL slug, so `my-new-post.md` → `/tech/my-new-post/`.
-
-## 🛠️ Change site-wide things
-
-Open `_config.yml` to edit your **name**, **tagline**, **social links**, and the
-two **section** labels/colors. Replace `assets/img/profile.png` with your photo.
-
-## 👀 Preview locally (optional)
-
-You never *need* this, but if you want to see changes before pushing:
-
-```bash
-bundle install
-bundle exec jekyll serve   # → http://localhost:4000
-```
+GitHub Pages builds Jekyll from the repository. For a local build, install Ruby/Bundler, run `bundle install`, then `bundle exec jekyll serve`.
