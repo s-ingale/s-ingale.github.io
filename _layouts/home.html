@@ -2,20 +2,17 @@
 layout: default
 ---
 <main id="main" class="home">
-  <section class="hero" aria-labelledby="journal-title">
-    <div class="sky-scene" aria-hidden="true">
-      <div class="sky-halo"></div>
-      <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
-      <div class="floating-tree">{% include tree.svg %}</div>
-      <div class="petals">{% for i in (1..9) %}<i class="petal petal-{{ i }}"></i>{% endfor %}</div>
-      <div class="island-shadow"></div>
-    </div>
-    <div class="hero-words"><span class="small-flower" aria-hidden="true">✿</span><h1 id="journal-title">{{ site.intro | escape }}</h1><div class="quiet-line" aria-hidden="true"></div></div>
-  </section>
-  {% assign entries = site.journal | sort: 'date' | reverse %}
-  {% if entries.size > 0 %}
-  <section class="journal" aria-label="Journal">
-    {% for post in entries %}{% include card.html post=post %}{% endfor %}
-  </section>
-  {% endif %}
+  <div class="garden" aria-hidden="true">
+    <div class="floating-tree">{% include tree.svg %}</div>
+    <div class="petals">{% for i in (1..16) %}<i class="petal petal-{{ i }}"><span></span></i>{% endfor %}</div>
+  </div>
+  <div class="journal-column">
+    <header class="journal-intro"><h1>{{ site.intro | escape }}</h1><div class="quiet-line" aria-hidden="true"></div></header>
+    {% assign entries = site.journal | sort: 'date' | reverse %}
+    {% if entries.size > 0 %}
+    <section class="journal" aria-label="Journal">
+      {% for post in entries %}{% include card.html post=post %}{% endfor %}
+    </section>
+    {% endif %}
+  </div>
 </main>
